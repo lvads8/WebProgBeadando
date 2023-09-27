@@ -1,0 +1,9 @@
+.vs/
+.vscode/
+.idea/
+.DS_STORE
+
+*.user
+
+*/**/[bB]in/
+*/**/[oO]bj/
