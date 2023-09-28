@@ -9,8 +9,9 @@
     @Html.DisplayFor(model => model.UploadedAt) - @Html.DisplayFor(model => model.UploadedBy)
 </small>
 
-<p class="mt-2" style="text-align: justify; max-width: 80ch;">
-    @Html.DisplayFor(model => model.Description)
-    <br/>
-    <a href="@Model.Path" download>Download</a>
-</p>
+<div class="mt-2">
+    <p style="text-align: justify; max-width: 80ch; overflow: hidden; word-wrap: break-word;">
+        @Model.Description
+    </p>
+    <a href="@Model.Path" download="@Model.OriginalName">Download</a>
+</div>

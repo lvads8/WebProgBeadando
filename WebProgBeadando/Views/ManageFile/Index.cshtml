@@ -1,0 +1,43 @@
+@model List<FileModel>
+
+@{
+    ViewBag.Title = "Manage files";
+}
+
+<h2>Manage achievements</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameForInnerType((FileModel model) => model.Name)</th>
+        <th>@Html.DisplayNameForInnerType((FileModel model) => model.OriginalName)</th>
+        <th>@Html.DisplayNameForInnerType((FileModel model) => model.UploadedAt)</th>
+        <th>@Html.DisplayNameForInnerType((FileModel model) => model.UploadedBy)</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (!Model.Any())
+    {
+        <tr>
+            <td colspan="5" class="text-muted text-center">No results.</td>
+        </tr>
+    }
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => model[i].Name)</td>
+            <td>@Html.DisplayFor(model => model[i].OriginalName)</td>
+            <td>@Html.DisplayFor(model => model[i].UploadedAt)</td>
+            <td>@Html.DisplayFor(model => model[i].UploadedBy)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@Model[i].Id">Edit</a>
+                |
+                <a asp-action="Delete" asp-route-id="@Model[i].Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a class="mt-3" asp-action="Create">New file</a>
