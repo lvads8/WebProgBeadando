@@ -1,0 +1,12 @@
+@model Achievement
+
+@{
+    ViewBag.Title = $"{Model.Name} - Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+<small class="text-muted">@Html.DisplayFor(model => model.Date)</small>
+
+<p class="mt-2" style="text-align: justify; max-width: 80ch;">
+    @Html.DisplayFor(model => model.Description)
+</p>

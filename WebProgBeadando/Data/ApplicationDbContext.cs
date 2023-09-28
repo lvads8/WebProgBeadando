@@ -8,6 +8,7 @@ namespace WebProgBeadando.Data;
 public class ApplicationDbContext : IdentityDbContext
 {
     public DbSet<Achievement> Achievements { get; set; } = null!;
+    public DbSet<FileModel> Files { get; set; } = null!;
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
