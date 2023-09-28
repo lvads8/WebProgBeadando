@@ -13,11 +13,14 @@ public class FileModel
     public required string Name { get; set; }
     public string? Description { get; set; }
     public required string Path { get; set; }
+    [Display(Name = "Original name")]
     public required string OriginalName { get; set; }
     [Required]
     [DataType(DataType.Date)]
+    [Display(Name = "Uploaded at")]
     public DateTime UploadedAt { get; set; } = DateTime.Now;
     [Required]
     [MaxLength(255)]
+    [Display(Name = "Uploaded by")]
     public required string UploadedBy { get; set; }
 }
