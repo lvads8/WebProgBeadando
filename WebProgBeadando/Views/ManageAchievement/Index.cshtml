@@ -1,0 +1,39 @@
+@model List<Achievement>
+
+@{
+    ViewBag.Title = "Manage achievements";
+}
+
+<h2>Manage achievements</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameForInnerType((Achievement model) => model.Name)</th>
+        <th>@Html.DisplayNameForInnerType((Achievement model) => model.Date)</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (!Model.Any())
+    {
+        <tr>
+            <td colspan="3" class="text-muted text-center">No results.</td>
+        </tr>
+    }
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => model[i].Name)</td>
+            <td>@Html.DisplayFor(model => model[i].Date)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@Model[i].Id">Edit</a>
+                |
+                <a asp-action="Delete" asp-route-id="@Model[i].Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a class="mt-3" asp-action="Create">New achievement</a>

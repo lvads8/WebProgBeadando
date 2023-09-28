@@ -35,7 +35,11 @@
                         </li>
                         @if (User.IsInRole("Admin"))
                         {
-                            <p>Im admin</p>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ManageAchievement" asp-action="Index">
+                                Manage achievements
+                            </a>
+                        </li>
                         }
                     }
                 </ul>
