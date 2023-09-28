@@ -10,7 +10,8 @@
     <thead>
     <tr>
         <th>@Html.DisplayNameForInnerType((FileModel model) => model.Name)</th>
-        <th>@Html.DisplayNameForInnerType((FileModel model) => model.Description)</th>
+        <th>@Html.DisplayNameForInnerType((FileModel model) => model.UploadedAt)</th>
+        <th>@Html.DisplayNameForInnerType((FileModel model) => model.UploadedBy)</th>
         <th></th>
     </tr>
     </thead>
@@ -26,7 +27,8 @@
     {
         <tr>
             <td>@Html.DisplayFor(model => model[i].Name)</td>
-            <td>@Html.DisplayFor(model => model[i].Description)</td>
+            <td>@Html.DisplayFor(model => model[i].UploadedAt)</td>
+            <td>@Html.DisplayFor(model => model[i].UploadedBy)</td>
             <td>
                 <a asp-action="Details" asp-route-id="@Model[i].Id">Details</a>
             </td>

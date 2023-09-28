@@ -7,6 +7,8 @@
 <h2>@Html.DisplayFor(model => model.Name)</h2>
 <small class="text-muted">@Html.DisplayFor(model => model.Date)</small>
 
-<p class="mt-2" style="text-align: justify; max-width: 80ch;">
-    @Html.DisplayFor(model => model.Description)
-</p>
+<div class="mt-2">
+    <p style="text-align: justify; max-width: 80ch; overflow: hidden; word-wrap: break-word;">
+        @Model.Description
+    </p>
+</div>
