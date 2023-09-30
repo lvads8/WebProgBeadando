@@ -6,10 +6,12 @@ using WebProgBeadando.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
+string connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ??
+    builder.Configuration.GetConnectionString("DefaultConnection") ??
     throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseNpgsql(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services
@@ -36,6 +38,7 @@ else
 
 using (var scope = app.Services.CreateScope())
 {
+    await scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.MigrateAsync();
     await scope.ServiceProvider.GetRequiredService<RoleSetupService>().SetupRoles();
 }
 

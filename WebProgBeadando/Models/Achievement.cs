@@ -12,6 +12,6 @@ public class Achievement
     public required string Name { get; set; }
     [Required]
     [DataType(DataType.Date)]
-    public required DateTime Date { get; set; }
+    public required DateTimeOffset Date { get; set; }
     public string? Description { get; set; }
 }

@@ -18,7 +18,7 @@ public class FileModel
     [Required]
     [DataType(DataType.Date)]
     [Display(Name = "Uploaded at")]
-    public DateTime UploadedAt { get; set; } = DateTime.Now;
+    public DateTimeOffset UploadedAt { get; set; } = DateTimeOffset.Now;
     [Required]
     [MaxLength(255)]
     [Display(Name = "Uploaded by")]
